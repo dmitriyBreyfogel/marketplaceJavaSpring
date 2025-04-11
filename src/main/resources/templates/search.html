@@ -9,7 +9,11 @@
 <body>
 <!-- Шапка -->
 <header class="header">
-  <div class="logo">Breyfogel</div>
+  <div class="logo">
+    <a th:href="@{/}" class="logoText">
+      Breyfogel
+    </a>
+  </div>
   <div class="search">
     <input type="text" placeholder="Найти на Breyfogel...">
     <a th:href="@{/search}">
