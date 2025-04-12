@@ -74,6 +74,7 @@ body {
     background: linear-gradient(to bottom, #7218EE 0%, #AA36E0 50%, #E956D2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: center;
 }
 
 /* Подвал */

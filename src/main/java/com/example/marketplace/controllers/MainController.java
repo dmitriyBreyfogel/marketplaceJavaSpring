@@ -8,15 +8,39 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
 
     @GetMapping("/")
-    public String home(Model model) {
+    public String homePage(Model model) {
         System.out.println("Home page requested");
         model.addAttribute("title", "Главная страница");
         return "home";
     }
 
     @GetMapping("/search")
-    public String search(Model model) {
+    public String searchPage(Model model) {
         model.addAttribute("title", "Поиск");
         return "search";
+    }
+
+    @GetMapping("/electronic")
+    public String electronicPage(Model model) {
+        model.addAttribute("title", "Электроника");
+        return "electronic";
+    }
+
+    @GetMapping("/clothes")
+    public String clothesPage(Model model) {
+        model.addAttribute("title", "Одежда");
+        return "clothes";
+    }
+
+    @GetMapping("/books")
+    public String booksPage(Model model) {
+        model.addAttribute("title", "Книги");
+        return "books";
+    }
+
+    @GetMapping("/house")
+    public String housePage(Model model) {
+        model.addAttribute("title", "Для дома");
+        return "house";
     }
 }
