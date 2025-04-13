@@ -9,7 +9,6 @@ public class MainController {
 
     @GetMapping("/")
     public String homePage(Model model) {
-        System.out.println("Home page requested");
         model.addAttribute("title", "Главная страница");
         return "home";
     }
