@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Breyfogel - Вход и регистрация</title>
+    <link rel="stylesheet" th:href="@{/styles/auth.css}">
+</head>
+<body>
+<!-- Шапка -->
+<header class="header">
+    <div class="logo">
+        <a href="#" class="logoText">
+            Breyfogel
+        </a>
+    </div>
+</header>
+
+<!-- Основной контент -->
+<main class="main">
+    <div class="auth-container">
+        <div class="auth-tabs">
+            <button class="tab-button active" id="login-tab">Вход</button>
+            <button class="tab-button" id="register-tab">Регистрация</button>
+        </div>
+
+        <!-- Форма входа -->
+        <div class="auth-form active" id="login-form">
+            <h2>Вход в аккаунт</h2>
+            <form th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" required placeholder="Введите ваш email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Пароль</label>
+                    <input type="password" id="login-password" name="password" required placeholder="Введите ваш пароль">
+                </div>
+                <div th:if="${loginError}" class="error-message">
+                    <p th:text="${loginError}"></p>
+                </div>
+                <button type="submit" class="auth-button">Войти</button>
+            </form>
+        </div>
+
+        <!-- Форма регистрации -->
+        <div class="auth-form" id="register-form">
+            <h2>Регистрация</h2>
+            <form th:action="@{/register}" method="post">
+                <div class="form-group">
+                    <label for="register-username">Имя пользователя</label>
+                    <input type="text" id="register-username" name="username" required placeholder="Придумайте имя пользователя">
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" name="email" required placeholder="Введите ваш email">
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Пароль</label>
+                    <input type="password" id="register-password" name="password" required placeholder="Придумайте пароль">
+                </div>
+                <div th:if="${registerError}" class="error-message">
+                    <p th:text="${registerError}"></p>
+                </div>
+                <button type="submit" class="auth-button">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<!-- Подвал -->
+<footer class="footer">
+    <div class="footer-links">
+        <a href="https://t.me/breyfogel">О нас</a>
+        <a href="#">Доставка</a>
+        <a href="#">Контакты</a>
+    </div>
+    <p>© 2025 Breyfogel. Все права защищены.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginTab = document.getElementById('login-tab');
+        const registerTab = document.getElementById('register-tab');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+
+        loginTab.addEventListener('click', function() {
+            loginTab.classList.add('active');
+            registerTab.classList.remove('active');
+            loginForm.classList.add('active');
+            registerForm.classList.remove('active');
+        });
+
+        registerTab.addEventListener('click', function() {
+            registerTab.classList.add('active');
+            loginTab.classList.remove('active');
+            registerForm.classList.add('active');
+            loginForm.classList.remove('active');
+        });
+    });
+</script>
+</body>
+</html>

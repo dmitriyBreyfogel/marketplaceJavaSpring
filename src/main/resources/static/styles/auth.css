@@ -1,0 +1,187 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Шапка */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 5%;
+    background: linear-gradient(to bottom, #7218EE 0%, #AA36E0 50%, #E956D2 100%);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logoText {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Основной контент */
+.main {
+    padding: 30px 5%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+}
+
+.auth-tabs {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.tab-button.active {
+    color: #7218EE;
+    border-bottom: 3px solid #7218EE;
+}
+
+.tab-button:hover:not(.active) {
+    background-color: #f9f9f9;
+}
+
+.auth-form {
+    padding: 30px;
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.auth-form h2 {
+    margin: 0 0 25px;
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    border-color: #AA36E0;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(170, 54, 224, 0.2);
+}
+
+.auth-button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #7218EE 0%, #AA36E0 50%, #E956D2 100%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-button:hover {
+    background: linear-gradient(to right, #6415d9 0%, #9730c9 50%, #d24bc0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(170, 54, 224, 0.3);
+}
+
+.error-message {
+    color: #e74c3c;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Подвал */
+.footer {
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(to bottom, #7218EE 0%, #AA36E0 50%, #E956D2 100%);
+    color: white;
+    margin-top: auto;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #ddd;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .auth-container {
+        max-width: 95%;
+    }
+
+    .auth-form {
+        padding: 20px;
+    }
+}

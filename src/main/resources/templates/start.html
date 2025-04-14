@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Breyfogel — маркетплейс нового поколения</title>
+  <link rel="stylesheet" th:href="@{/styles/start.css}">
+</head>
+<body>
+<!-- Шапка -->
+<header class="header">
+  <div class="logo">
+    <a href="#" class="logoText">Breyfogel</a>
+  </div>
+</header>
+
+<!-- Главный блок -->
+<main class="main">
+  <div style="text-align: center; max-width: 700px;">
+    <h1 style="font-size: 38px; color: #7218EE;">Добро пожаловать в Breyfogel</h1>
+    <p style="font-size: 18px; color: #444; margin: 20px 0 40px;">
+      Breyfogel — это маркетплейс нового поколения, объединяющий продавцов и покупателей. Мы делаем покупки удобными, быстрыми и приятными.
+    </p>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <a th:href="@{/login}" class="auth-button" style="max-width: 180px; text-align: center;">Войти</a>
+      <a th:href="@{/register}" class="auth-button" style="max-width: 180px; text-align: center;">Зарегистрироваться</a>
+    </div>
+  </div>
+</main>
+
+<!-- Подвал -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="https://t.me/breyfogel">О нас</a>
+    <a href="#">Доставка</a>
+    <a href="#">Контакты</a>
+  </div>
+  <p>© 2025 Breyfogel. Все права защищены.</p>
+</footer>
+</body>
+</html>

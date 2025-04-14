@@ -18,8 +18,28 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    // Геттеры и сеттеры
+    // Поле для роли пользователя, по умолчанию обычный пользователь
+    @Column(nullable = false)
+    private String role = "USER";
 
+    // Поле активности аккаунта
+    @Column(nullable = false)
+    private boolean active = true;
+
+    // Конструкторы
+    public User() {
+    }
+
+    public User(Long id, String username, String email, String password, String role, boolean active) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.active = active;
+    }
+
+    // Геттеры и сеттеры
     public Long getId() {
         return id;
     }
@@ -50,5 +70,32 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", role='" + role + '\'' +
+                ", active=" + active +
+                '}';
     }
 }
