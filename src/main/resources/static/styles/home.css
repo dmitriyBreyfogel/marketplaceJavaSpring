@@ -4,6 +4,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Шапка */
@@ -14,6 +17,9 @@ body {
     padding: 15px 5%;
     background: linear-gradient(to bottom, #7218EE 0%, #AA36E0 50%, #E956D2 100%);
     color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .work {
@@ -40,7 +46,6 @@ body {
     border-radius: 4px 0 0 4px;
 }
 
-
 .search-btn {
     color: white;
     padding: 10px 15px;
@@ -54,7 +59,6 @@ body {
     background-color: #6a19db;
 }
 
-
 .cart {
     cursor: pointer;
 }
@@ -67,36 +71,46 @@ body {
     padding: 15px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 68px; /* Высота header */
+    z-index: 99;
 }
 
 .categories a {
     text-decoration: none;
     color: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
 }
 
-/* Карточки товаров */
+.categories a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Основной контент */
 .main {
-    padding: 20px 5%;
+    padding: 30px 5%;
+    flex: 1;
 }
 
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 25px;
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .product-card {
     transition: all 0.3s ease;
-    transform: translateY(0);
-
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     height: 100%;
-    background: white;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .product-card:hover {
@@ -105,86 +119,101 @@ body {
 }
 
 .product-card img {
-    transition: box-shadow 0.3s ease;
-
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    flex-grow: 1;
-    object-fit: contain;
-    margin-bottom: 15px;
+    width: 100%;
+    height: 200px;
+    object-fit: contain; /* Сохраняем contain для защиты пропорций */
+    object-position: center; /* Центрируем изображение */
+    padding: 10px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    max-height: 100%; /* Гарантируем, что изображение не будет больше контейнера */
+    display: block; /* Более предсказуемое поведение блока */
+    margin: 0 auto; /* Центрирование изображения */
 }
 
-.product-card img:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.product-card:hover img {
+    transform: scale(1.05); /* Небольшое увеличение изображения при наведении */
 }
 
 .definitionProduct {
-    text-align: center;
-    margin-top: auto;
+    padding: 15px;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+}
+
+.definitionProduct h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #333;
+    min-height: 40px;
 }
 
 .price {
     font-size: 18px;
     color: #7720f0;
     font-weight: bold;
+    margin: 10px 0;
 }
 
 .product-card button {
     transition: all 0.2s ease;
-
-    font-size: 12pt;
+    font-size: 14px;
     color: white;
     background-color: #9B42F4;
     border: none;
-    padding: 8px 15px;
+    padding: 10px;
     border-radius: 4px;
     cursor: pointer;
     width: 100%;
+    margin-top: auto;
 }
 
 .product-card button:hover {
-    transform: scale(1.02);
-
     background-color: #a556f5;
 }
 
 /* Подвал */
 .footer {
     text-align: center;
-    padding: 20px;
+    padding: 25px;
     background: linear-gradient(to bottom, #7218EE 0%, #AA36E0 50%, #E956D2 100%);
     color: white;
-    margin-top: 0;
+    margin-top: auto;
 }
 
 .footer-links {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .footer-links a {
     color: #ddd;
-    margin: 0 10px;
+    margin: 0 15px;
     text-decoration: none;
+    transition: color 0.2s;
 }
 
 .footer-links a:hover {
-    color: #c0bcbc;
+    color: white;
 }
 
-/* Дополнительная страховка */
-html, body {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+.footer p {
+    margin: 0;
+    font-size: 14px;
 }
 
-body {
-    min-height: 100vh;
-}
+/* Гарантия отступов */
+@media (max-width: 768px) {
+    .products {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
 
-.main {
-    flex: 1;
+    .search input {
+        width: 200px;
+    }
+
+    .categories {
+        flex-wrap: wrap;
+        top: 118px; /* Для мобил с двумя строками */
+    }
 }

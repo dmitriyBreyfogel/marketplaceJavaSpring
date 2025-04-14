@@ -25,7 +25,6 @@ public class Product {
     private ProductType type = ProductType.OTHER;
 
     // Геттеры и сеттеры
-
     public Long getId() {
         return id;
     }

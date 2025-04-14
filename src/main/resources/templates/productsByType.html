@@ -33,7 +33,7 @@
 
 <!-- Основной контент -->
 <main class="main">
-  <h1>Популярные товары</h1>
+  <h1 th:text="${productType.displayName}"></h1>
   <div class="products">
     <!-- Карточки товаров в цикле -->
     <div th:each="product : ${products}" class="product-card">
