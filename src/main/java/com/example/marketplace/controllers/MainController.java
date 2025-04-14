@@ -1,11 +1,15 @@
 package com.example.marketplace.controllers;
 
+import com.example.marketplace.models.ProductType;
+import com.example.marketplace.services.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class MainController {
+    ProductService productService;
 
     @GetMapping("/")
     public String homePage(Model model) {
@@ -19,27 +23,14 @@ public class MainController {
         return "search";
     }
 
-    @GetMapping("/electronic")
-    public String electronicPage(Model model) {
-        model.addAttribute("title", "Электроника");
-        return "electronic";
+    @GetMapping("/category/{type}")
+    public String electronicPage(@PathVariable String type, Model model) {
+        ProductType productType = ProductType.fromString(type.toUpperCase());
+        model.addAttribute("title", productType.getDisplayName());
+        model.addAttribute("products", productService.findByType(productType));
+
+        return "products";
     }
 
-    @GetMapping("/clothes")
-    public String clothesPage(Model model) {
-        model.addAttribute("title", "Одежда");
-        return "clothes";
-    }
 
-    @GetMapping("/books")
-    public String booksPage(Model model) {
-        model.addAttribute("title", "Книги");
-        return "books";
-    }
-
-    @GetMapping("/house")
-    public String housePage(Model model) {
-        model.addAttribute("title", "Для дома");
-        return "house";
-    }
 }

@@ -18,7 +18,11 @@ public class Product {
     @Column(nullable = false)
     private BigDecimal price;
 
-    private String imageUrl;
+    private String image_path;
+
+    @Enumerated(EnumType.STRING) // Хранить в БД как строку
+    @Column(name = "type", columnDefinition = "VARCHAR(20) DEFAULT 'OTHER'")
+    private ProductType type = ProductType.OTHER;
 
     // Геттеры и сеттеры
 
@@ -54,11 +58,19 @@ public class Product {
         this.price = price;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImagePath() {
+        return image_path;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImagePath(String image_path) {
+        this.image_path = image_path;
+    }
+
+    public ProductType getType() {
+        return type;
+    }
+
+    public void setType(ProductType type) {
+        this.type = type;
     }
 }
